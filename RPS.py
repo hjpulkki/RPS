@@ -29,6 +29,9 @@ score = 0
 prediction = 1
 if DEBUG:
     print("The computer is planning to play", NAMES.get((prediction+1)%3))
+    
+print("Select your move with keys r (rock), p (paper) or s (scissors)")
+    
 while True:
     key = getch.getch()
     print("key", key)
@@ -50,7 +53,7 @@ while True:
 
     result = -((value - prediction) % 3 - 1)
     score += result
-    print("Opponent played", NAMES.get(value), "Result:", RESULTS.get(result), "Score:", score)
+    print("You played", NAMES.get(value), "Computer played", NAMES.get(prediction), "Result:", RESULTS.get(result), "Score:", score)
 
     data.append(value)
 
