@@ -30,6 +30,7 @@ def batch_generator(filename):
         for line in data_file:
             # Convert line to numpy array
             data_vector = np.array(list(line[:-1]))
+            data_vector = data_vector.astype(np.float)
 
             # The three dimensions are: 
             #    samples (we have only 1),
