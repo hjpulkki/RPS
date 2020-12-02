@@ -58,6 +58,7 @@ for i in range(EPOCH_NP):    # manual epochs
 print("evaluating")
 validation = '100101000110221110101002201101101101002201011012222210221011011101011122110010101010101'
 input_validation = np.array(list(validation[:-1])).reshape(INPUT_SHAPE)
+input_validation = input_validation.astype(np.float)
 output_validation = np_utils.to_categorical(np.array(list(validation[1:]))).reshape(OUTPUT_SHAPE)
 loss_and_metrics = model.evaluate(input_validation, output_validation, batch_size=100)
 print("\n Evaluation results")
