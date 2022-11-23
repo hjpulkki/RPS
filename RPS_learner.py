@@ -30,6 +30,7 @@ def batch_generator(filename):
         for line in data_file:
             # Convert line to numpy array
             data_vector = np.array(list(line[:-1]))
+            data_vector = data_vector.astype(np.float)
 
             # The three dimensions are: 
             #    samples (we have only 1),
@@ -57,6 +58,7 @@ for i in range(EPOCH_NP):    # manual epochs
 print("evaluating")
 validation = '100101000110221110101002201101101101002201011012222210221011011101011122110010101010101'
 input_validation = np.array(list(validation[:-1])).reshape(INPUT_SHAPE)
+input_validation = input_validation.astype(np.float)
 output_validation = np_utils.to_categorical(np.array(list(validation[1:]))).reshape(OUTPUT_SHAPE)
 loss_and_metrics = model.evaluate(input_validation, output_validation, batch_size=100)
 print("\n Evaluation results")
